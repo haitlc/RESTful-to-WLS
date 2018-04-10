@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- Define Element Tag you want to unmarshal -->
+	<xs:element name="NewDataSet" type="NewDataSet"/>
+
+	<!-- Define the structure of tag -->
+	<xs:complexType name="NewDataSet">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Table1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="columnA" type="xs:string"
+							minOccurs="0" />
+						<xs:element name="columnB" type="xs:string"
+							minOccurs="0" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+
+</xs:schema>

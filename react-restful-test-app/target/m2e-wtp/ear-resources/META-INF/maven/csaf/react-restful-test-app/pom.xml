@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- FP custom groupid, artifactId, version and information -->
+	<parent>
+		<artifactId>react-restful-test</artifactId>
+		<groupId>csaf</groupId>
+		<version>1.0.0-DEV</version>
+	</parent>
+	<artifactId>react-restful-test-app</artifactId>
+	<packaging>ear</packaging>
+	<name>REACT RESTFUL TEST - EAR project</name>
+	<description>REACT RESTFUL TEST - EAR project</description>
+	<!-- End: FP custom groupid, artifactId, version and information -->
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.4.2</version>
+				<configuration>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<earSourceExcludes>**/application.xml</earSourceExcludes>
+					<generateApplicationXml>true</generateApplicationXml>
+					<displayName>${app.name}_${display.version}</displayName>
+					<finalName>${project.artifactId}-${project.version}</finalName>
+					<modules>
+						<webModule>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>react-restful-test-war</artifactId>
+							<uri>react-restful-test-${project.version}.war</uri>
+							<contextRoot>${content.root}</contextRoot>
+						</webModule>
+						<ejbModule>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>react-restful-test-ejb</artifactId>
+						</ejbModule>
+					</modules>
+					<filtering>true</filtering>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.oracle.weblogic</groupId>
+				<artifactId>weblogic-maven-plugin</artifactId>
+				<version>10.3.4</version>
+				<configuration>
+					<adminurl>t3://localhost:7001</adminurl>
+					<user>weblogic</user>
+					<password>weblogic1</password>
+					<name>${app.name}_${display.version}</name>
+					<upload>true</upload>
+					<remote>false</remote>
+					<verbose>true</verbose>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>react-restful-test-ejb</artifactId>
+			<version>${project.version}</version>
+			<type>ejb</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>react-restful-test-war</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+</project>

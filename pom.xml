@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- FP custom groupid, artifactId, version and information -->
+	<groupId>csaf</groupId>
+	<artifactId>react-restful-test</artifactId>
+	<version>1.0.0-DEV</version>
+	<packaging>pom</packaging>
+	<name>REACT RESTFUL TEST - APP Project</name>
+	<description>REACT RESTFUL TEST - APP Project</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<display.version>1_0_0</display.version>
+		<app.name>REACT_RESTFUL_TEST_APP</app.name>
+		<content.root>REACT_RESTFUL_TEST</content.root>
+		<site.server>hosa1sv01t</site.server>
+	</properties>
+
+	<modules>
+		<module>react-restful-test-app</module>
+		<module>react-restful-test-ejb</module>
+		<module>react-restful-test-war</module>
+	</modules>
+
+	<!-- End: FP custom groupid, artifactId, version and information -->
+
+	<!-- build management -->
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.1</version>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

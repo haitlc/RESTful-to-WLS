@@ -1,0 +1,503 @@
+<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions targetNamespace="http://tempuri.org/CorpSMS/CorpSMS" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://tempuri.org/CorpSMS/CorpSMS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/CorpSMS/CorpSMS">
+      <s:element name="SendSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="vsUserID" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsConnection" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsClusterCode" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsInstCode" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vdsOutgoingSMS">
+              <s:complexType>
+                <s:sequence>
+                  <!--                   <s:element ref="s:schema" /> -->
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element maxOccurs="1" minOccurs="0" name="rsRetMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="SendSMSResult" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="rsRetMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="vsUserID" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsConnection" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsClusterCode" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsInstCode" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="1" name="vsLastSeqNum" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsServerName" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="rdsIncomingSMS">
+              <s:complexType>
+                <s:sequence>
+                  <!--                   <s:element ref="s:schema" /> -->
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element maxOccurs="1" minOccurs="0" name="rsRetMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="ReceiveSMSResult" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="rdsIncomingSMS">
+              <s:complexType>
+                <s:sequence>
+                  <!--                   <s:element ref="s:schema" /> -->
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element maxOccurs="1" minOccurs="0" name="rsRetMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckSMSStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="vsUserID" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsConnection" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsClusterCode" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsInstCode" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="1" name="vsHAMsgIDLower" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="1" name="vsHAMsgIDUpper" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsHAProject" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="rdsOutgoingSMSStatus">
+              <s:complexType>
+                <s:sequence>
+                  <!--                   <s:element ref="s:schema" /> -->
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element maxOccurs="1" minOccurs="0" name="rsRetMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckSMSStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="CheckSMSStatusResult" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="rdsOutgoingSMSStatus">
+              <s:complexType>
+                <s:sequence>
+                  <!--                   <s:element ref="s:schema" /> -->
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element maxOccurs="1" minOccurs="0" name="rsRetMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckSMSStatusWithFiltering">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="vsUserID" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsConnection" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsClusterCode" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsInstCode" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="1" name="vsHAMsgIDLower" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="1" name="vsHAMsgIDUpper" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsHAProject" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="rdsOutgoingSMSStatus">
+              <s:complexType>
+                <s:sequence>
+                  <!--                   <s:element ref="s:schema" /> -->
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element maxOccurs="1" minOccurs="0" name="vdsFilter">
+              <s:complexType>
+                <s:sequence>
+                  <!--                   <s:element ref="s:schema" /> -->
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element maxOccurs="1" minOccurs="0" name="rsRetMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckSMSStatusWithFilteringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="CheckSMSStatusWithFilteringResult" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="rdsOutgoingSMSStatus">
+              <s:complexType>
+                <s:sequence>
+                  <!--                   <s:element ref="s:schema" /> -->
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element maxOccurs="1" minOccurs="0" name="rsRetMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveSMSByPhoneNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="vsUserID" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsConnection" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsClusterCode" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsInstCode" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="1" name="vsLastSeqNum" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsPhoneNumber" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsServerName" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="rdsIncomingSMS">
+              <s:complexType>
+                <s:sequence>
+                  <!--                   <s:element ref="s:schema" /> -->
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element maxOccurs="1" minOccurs="0" name="rsRetMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveSMSByPhoneNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="ReceiveSMSByPhoneNumberResult" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="rdsIncomingSMS">
+              <s:complexType>
+                <s:sequence>
+                  <!--                   <s:element ref="s:schema" /> -->
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element maxOccurs="1" minOccurs="0" name="rsRetMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecallSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="vsUserID" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsConnection" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsClusterCode" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vsInstCode" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="vdsRecallSMS">
+              <s:complexType>
+                <s:sequence>
+                  <!--                   <s:element ref="s:schema" /> -->
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element maxOccurs="1" minOccurs="0" name="rdsRecallSMSStatus">
+              <s:complexType>
+                <s:sequence>
+                  <!--                   <s:element ref="s:schema" /> -->
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element maxOccurs="1" minOccurs="0" name="rsRetMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecallSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="RecallSMSResult" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="rdsRecallSMSStatus">
+              <s:complexType>
+                <s:sequence>
+                  <!--                   <s:element ref="s:schema" /> -->
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element maxOccurs="1" minOccurs="0" name="rsRetMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="returnOkayString">
+        <s:complexType/>
+      </s:element>
+      <s:element name="returnOkayStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="returnOkayStringResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="returnDataset">
+        <s:complexType/>
+      </s:element>
+      <s:element name="returnDatasetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="returnDatasetResult">
+              <s:complexType>
+                <s:sequence>
+                  <!--                   <s:element ref="s:schema" /> -->
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendSMSSoapIn">
+    <wsdl:part element="tns:SendSMS" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapOut">
+    <wsdl:part element="tns:SendSMSResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ReceiveSMSSoapIn">
+    <wsdl:part element="tns:ReceiveSMS" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ReceiveSMSSoapOut">
+    <wsdl:part element="tns:ReceiveSMSResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CheckSMSStatusSoapIn">
+    <wsdl:part element="tns:CheckSMSStatus" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CheckSMSStatusSoapOut">
+    <wsdl:part element="tns:CheckSMSStatusResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CheckSMSStatusWithFilteringSoapIn">
+    <wsdl:part element="tns:CheckSMSStatusWithFiltering" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CheckSMSStatusWithFilteringSoapOut">
+    <wsdl:part element="tns:CheckSMSStatusWithFilteringResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ReceiveSMSByPhoneNumberSoapIn">
+    <wsdl:part element="tns:ReceiveSMSByPhoneNumber" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ReceiveSMSByPhoneNumberSoapOut">
+    <wsdl:part element="tns:ReceiveSMSByPhoneNumberResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="RecallSMSSoapIn">
+    <wsdl:part element="tns:RecallSMS" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="RecallSMSSoapOut">
+    <wsdl:part element="tns:RecallSMSResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="returnOkayStringSoapIn">
+    <wsdl:part element="tns:returnOkayString" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="returnOkayStringSoapOut">
+    <wsdl:part element="tns:returnOkayStringResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="returnDatasetSoapIn">
+    <wsdl:part element="tns:returnDataset" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="returnDatasetSoapOut">
+    <wsdl:part element="tns:returnDatasetResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="CorpSMSSoap">
+    <wsdl:operation name="SendSMS">
+      <wsdl:input message="tns:SendSMSSoapIn"/>
+      <wsdl:output message="tns:SendSMSSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMS">
+      <wsdl:input message="tns:ReceiveSMSSoapIn"/>
+      <wsdl:output message="tns:ReceiveSMSSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMSStatus">
+      <wsdl:input message="tns:CheckSMSStatusSoapIn"/>
+      <wsdl:output message="tns:CheckSMSStatusSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMSStatusWithFiltering">
+      <wsdl:input message="tns:CheckSMSStatusWithFilteringSoapIn"/>
+      <wsdl:output message="tns:CheckSMSStatusWithFilteringSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMSByPhoneNumber">
+      <wsdl:input message="tns:ReceiveSMSByPhoneNumberSoapIn"/>
+      <wsdl:output message="tns:ReceiveSMSByPhoneNumberSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="RecallSMS">
+      <wsdl:input message="tns:RecallSMSSoapIn"/>
+      <wsdl:output message="tns:RecallSMSSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="returnOkayString">
+      <wsdl:input message="tns:returnOkayStringSoapIn"/>
+      <wsdl:output message="tns:returnOkayStringSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="returnDataset">
+      <wsdl:input message="tns:returnDatasetSoapIn"/>
+      <wsdl:output message="tns:returnDatasetSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CorpSMSSoap" type="tns:CorpSMSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SendSMS">
+      <soap:operation soapAction="http://tempuri.org/CorpSMS/CorpSMS/SendSMS" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMS">
+      <soap:operation soapAction="http://tempuri.org/CorpSMS/CorpSMS/ReceiveSMS" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMSStatus">
+      <soap:operation soapAction="http://tempuri.org/CorpSMS/CorpSMS/CheckSMSStatus" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMSStatusWithFiltering">
+      <soap:operation soapAction="http://tempuri.org/CorpSMS/CorpSMS/CheckSMSStatusWithFiltering" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMSByPhoneNumber">
+      <soap:operation soapAction="http://tempuri.org/CorpSMS/CorpSMS/ReceiveSMSByPhoneNumber" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecallSMS">
+      <soap:operation soapAction="http://tempuri.org/CorpSMS/CorpSMS/RecallSMS" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="returnOkayString">
+      <soap:operation soapAction="http://tempuri.org/CorpSMS/CorpSMS/returnOkayString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="returnDataset">
+      <soap:operation soapAction="http://tempuri.org/CorpSMS/CorpSMS/returnDataset" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CorpSMSSoap12" type="tns:CorpSMSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SendSMS">
+      <soap12:operation soapAction="http://tempuri.org/CorpSMS/CorpSMS/SendSMS" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMS">
+      <soap12:operation soapAction="http://tempuri.org/CorpSMS/CorpSMS/ReceiveSMS" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMSStatus">
+      <soap12:operation soapAction="http://tempuri.org/CorpSMS/CorpSMS/CheckSMSStatus" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSMSStatusWithFiltering">
+      <soap12:operation soapAction="http://tempuri.org/CorpSMS/CorpSMS/CheckSMSStatusWithFiltering" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMSByPhoneNumber">
+      <soap12:operation soapAction="http://tempuri.org/CorpSMS/CorpSMS/ReceiveSMSByPhoneNumber" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecallSMS">
+      <soap12:operation soapAction="http://tempuri.org/CorpSMS/CorpSMS/RecallSMS" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="returnOkayString">
+      <soap12:operation soapAction="http://tempuri.org/CorpSMS/CorpSMS/returnOkayString" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="returnDataset">
+      <soap12:operation soapAction="http://tempuri.org/CorpSMS/CorpSMS/returnDataset" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CorpSMS">
+    <wsdl:port binding="tns:CorpSMSSoap" name="CorpSMSSoap">
+      <soap:address location="http://hocallctrsrv22:6201/webservices/SMS/CorpSMS.asmx"/>
+    </wsdl:port>
+    <wsdl:port binding="tns:CorpSMSSoap12" name="CorpSMSSoap12">
+      <soap12:address location="http://hocallctrsrv22:6201/webservices/SMS/CorpSMS.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

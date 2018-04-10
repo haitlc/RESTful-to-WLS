@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="react-restful-test-app-1.0.0-DEV">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
+        <dependent-module archiveName="react-restful-test-1.0.0-DEV.war" deploy-path="/" handle="module:/resource/react-restful-test-war/react-restful-test-war">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="react-restful-test-ejb-1.0.0-DEV.jar" deploy-path="/" handle="module:/resource/react-restful-test-ejb/react-restful-test-ejb">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="component.exclusion.patterns" value="**/application.xml"/>
+    </wb-module>
+</project-modules>

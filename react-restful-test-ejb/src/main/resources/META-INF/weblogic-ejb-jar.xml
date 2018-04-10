@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weblogic-ejb-jar xmlns:wls="http://xmlns.oracle.com/weblogic/weblogic-ejb-jar"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_0.xsd http://xmlns.oracle.com/weblogic/weblogic-ejb-jar http://xmlns.oracle.com/weblogic/weblogic-ejb-jar/1.0/weblogic-ejb-jar.xsd">
+	<!--weblogic-version:10.3.2 -->
+	<weblogic-enterprise-bean>
+		<ejb-name>SampleSessionBean</ejb-name>
+		<transaction-descriptor>
+			<trans-timeout-seconds>40</trans-timeout-seconds>
+		</transaction-descriptor>
+        <remote-client-timeout>35</remote-client-timeout>
+	</weblogic-enterprise-bean>
+</weblogic-ejb-jar>

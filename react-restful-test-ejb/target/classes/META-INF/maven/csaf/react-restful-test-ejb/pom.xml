@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- FP custom groupid, artifactId, version and information -->
+	<parent>
+		<artifactId>react-restful-test</artifactId>
+		<groupId>csaf</groupId>
+		<version>1.0.0-DEV</version>
+	</parent>
+	<artifactId>react-restful-test-ejb</artifactId>
+	<packaging>ejb</packaging>
+	<name>REACT RESTFUL TEST - EJB project</name>
+	<description>REACT RESTFUL TEST - EJB project</description>
+	<!-- End: FP custom groupid, artifactId, version and information -->
+
+	<!-- plugin for build EJB project -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.4.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ejb-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<ejbVersion>3.0</ejbVersion>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.1</version>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<!-- dependencies for all environments -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>6.0</version>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<!-- HA lib -->
+		<dependency>
+			<groupId>HA-LIB.oracle.middleware.wlserver.server.lib</groupId>
+			<artifactId>weblogic</artifactId>
+			<version>10.3.6</version>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle.weblogic</groupId>
+			<artifactId>weblogic-maven-plugin</artifactId>
+			<version>10.3.6.0</version>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>2.1.2</version>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+</project>

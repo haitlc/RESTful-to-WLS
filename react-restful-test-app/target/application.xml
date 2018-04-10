@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application PUBLIC
+	"-//Sun Microsystems, Inc.//DTD J2EE Application 1.3//EN"
+	"http://java.sun.com/dtd/application_1_3.dtd">
+<application>
+  <display-name>REACT_RESTFUL_TEST_APP_1_0_0</display-name>
+  <description>REACT RESTFUL TEST - EAR project</description>
+  <module>
+    <web>
+      <web-uri>react-restful-test-1.0.0-DEV.war</web-uri>
+      <context-root>REACT_RESTFUL_TEST</context-root>
+    </web>
+  </module>
+  <module>
+    <ejb>react-restful-test-ejb-1.0.0-DEV.jar</ejb>
+  </module>
+</application>
